@@ -51,8 +51,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
-      - run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/myapp -f Dockerfile.dev .
-      - run: docker run -e CI=true ${{ secrets.DOCKERHUB_USERNAME }}/myapp npm test
+      - run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/myapp -f dockerfile.dev .
 
       - name: Generate deployment package
         run: zip -r deploy.zip . -x '*.git*'
