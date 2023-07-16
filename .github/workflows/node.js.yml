@@ -45,7 +45,7 @@ jobs:
         docker push ${{ secrets.DOCKERHUB_USERNAME }}/myapp:latest
 
   deploy-aws:
-    needs: build
+    needs: deploy-docker
     
     runs-on: ubuntu-latest
     steps:
